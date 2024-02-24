@@ -3,6 +3,7 @@ from telebot import types
 from loguru import logger
 from telebot.types import Message
 
+
 def show_buttons_photo_need_yes_no(message: Message) -> None:
     """
     Вызов в чат инлайн-кнопок с вопросом - нужны ли пользователю фотографии?
@@ -11,9 +12,14 @@ def show_buttons_photo_need_yes_no(message: Message) -> None:
     : return : None
 
     """
-    logger.info('Вывод кнопок о необходимости фотографий пользователю. ')
+    logger.info("Вывод кнопок о необходимости фотографий пользователю. ")
     keyboard_yes_no = types.InlineKeyboardMarkup()
-    keyboard_yes_no.add(types.InlineKeyboardButton(text='ДА ☑', callback_data='yes'))
-    keyboard_yes_no.add(types.InlineKeyboardButton(text='НЕТ✖', callback_data='no'))
+    keyboard_yes_no.add(types.InlineKeyboardButton(text="ДА ☑", callback_data="yes"))
+    keyboard_yes_no.add(types.InlineKeyboardButton(text="НЕТ✖", callback_data="no"))
 
-    bot.send_message(message.chat.id, "<b>Нужно вывести фотографии?</b>", reply_markup=keyboard_yes_no, parse_mode="html")
+    bot.send_message(
+        message.chat.id,
+        "<b>Нужно вывести фотографии?</b>",
+        reply_markup=keyboard_yes_no,
+        parse_mode="html",
+    )

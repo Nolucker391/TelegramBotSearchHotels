@@ -1,8 +1,8 @@
 import json
 from telebot.types import Dict
 
-def get_city(response_text: str) -> Dict:
 
+def get_city(response_text: str) -> Dict:
     """
     Принимает ответ от сервера с возможными вариантами городов. Возвращает словарь
     с названиями городов и их идентификатором.
@@ -14,13 +14,13 @@ def get_city(response_text: str) -> Dict:
     data = json.loads(response_text)
 
     if not data:
-        raise LookupError('Запрос пуст...')
+        raise LookupError("Запрос пуст...")
 
-    for id_place in data['sr']:
+    for id_place in data["sr"]:
         try:
-            possible_cities[id_place['gaiaId']] = {
-                "gaiaId": id_place['gaiaId'],
-                "regionNames": id_place['regionNames']['fullName']
+            possible_cities[id_place["gaiaId"]] = {
+                "gaiaId": id_place["gaiaId"],
+                "regionNames": id_place["regionNames"]["fullName"],
             }
         except KeyError:
             continue

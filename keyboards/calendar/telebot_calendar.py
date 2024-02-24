@@ -6,10 +6,12 @@ from dataclasses import dataclass
 from telebot import TeleBot
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
+
 @dataclass
 class Language:
     days: tuple
     months: tuple
+
 
 RUSSIAN_LANGUAGE = Language(
     days=("Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"),
@@ -28,6 +30,7 @@ RUSSIAN_LANGUAGE = Language(
         "Декабрь",
     ),
 )
+
 
 class Calendar:
     __lang: Language
@@ -114,7 +117,8 @@ class Calendar:
                 callback_data=calendar_callback.new("PREVIOUS-MONTH", year, month, "!"),
             ),
             InlineKeyboardButton(
-                "Следующий месяц", callback_data=calendar_callback.new("NEXT-MONTH", year, month, "!")
+                "Следующий месяц",
+                callback_data=calendar_callback.new("NEXT-MONTH", year, month, "!"),
             ),
         )
 
@@ -253,7 +257,9 @@ class CallbackData:
         if not prefix:
             raise ValueError("Префикс не должен быть пустым")
         if sep in prefix:
-            raise ValueError(f"Разделитель {sep!r} не может использоваться в качестве префикса")
+            raise ValueError(
+                f"Разделитель {sep!r} не может использоваться в качестве префикса"
+            )
         if not parts:
             raise TypeError("Части не были переданы!")
 

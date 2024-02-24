@@ -1,5 +1,6 @@
 from telebot.handler_backends import State, StatesGroup
 
+
 class User_input_state(StatesGroup):
     """
     Класс для запоминания состояния пользователя
