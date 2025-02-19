@@ -1,6 +1,9 @@
 <h1 align="center">TelegramBotHotel - бот поиска отелей
 
 [![Telegram URL](https://www.dampftbeidir.de/mediafiles/tpl/icon-telegram.png)](https://t.me/nolucker_python_bot)
+
+<img src="images/command_images/logo.png" alt="Demo" width="300" height="250">
+
 </h1>
 
 ***
